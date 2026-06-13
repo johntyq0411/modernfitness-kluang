@@ -54,7 +54,7 @@ export default function Trainers({ setActiveSection }) {
           {trainers.map((trainer) => (
             <div key={trainer.id} className="card trainer-card">
               <img 
-                src={trainer.photo || '/hero.png'} 
+                src={trainer.photo ? (trainer.photo.startsWith('/') ? trainer.photo.substring(1) : trainer.photo) : 'hero.png'} 
                 alt={trainer.name} 
                 className="trainer-img" 
               />

@@ -49,21 +49,21 @@ const DEFAULT_TRAINERS = [
     name: 'Coach Alex Tan',
     specialties: ['Muay Thai', 'Kickboxing', 'Self-Defense'],
     bio: 'Former regional Muay Thai champion with over 10 years of coaching experience. Specializes in building core stamina, technique, and high-intensity fight training.',
-    photo: '/muay_thai.png'
+    photo: 'muay_thai.png'
   },
   {
     id: 't2',
     name: 'Coach Marcus Lim',
     specialties: ['Strength Training', 'Bodybuilding', 'Powerlifting'],
     bio: 'Certified strength conditioning specialist. Passionate about posture correction, functional movements, and helping members hit their personal record lifts.',
-    photo: '/personal_training.png'
+    photo: 'personal_training.png'
   },
   {
     id: 't3',
     name: 'Coach Sarah Wong',
     specialties: ['Weight Loss & HIIT', 'Yoga & Flexibility', 'Nutrition Coaching'],
     bio: 'Dedicated fitness therapist. Focuses on holistic lifestyle transformations, flexible dieting strategies, and sustainable fat loss coaching.',
-    photo: '/hero.png'
+    photo: 'hero.png'
   }
 ];
 
