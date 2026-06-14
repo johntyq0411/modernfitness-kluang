@@ -22,6 +22,7 @@ function AppContent() {
   
   const [regName, setRegName] = useState('');
   const [regEmail, setRegEmail] = useState('');
+  const [isRoleDrawerOpen, setIsRoleDrawerOpen] = useState(false);
 
   const handlePortalLogin = (e) => {
     e.preventDefault();
@@ -299,6 +300,46 @@ function AppContent() {
           </div>
         </div>
       </footer>
+
+      {/* Floating Demo Role Switcher FAB on Mobile */}
+      <button 
+        className="fab-btn fab-left" 
+        onClick={() => setIsRoleDrawerOpen(true)}
+        title="Switch Demo Role"
+      >
+        <svg fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        </svg>
+      </button>
+
+      {/* Demo Role Switcher Bottom Drawer */}
+      {isRoleDrawerOpen && (
+        <div className="modal-overlay" onClick={() => setIsRoleDrawerOpen(false)} style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
+          <div className="drawer-content" onClick={(e) => e.stopPropagation()}>
+            <h4 className="drawer-title">Switch Demo Role</h4>
+            
+            <button className="drawer-item" onClick={() => { login('guest', 'guest'); setIsRoleDrawerOpen(false); setActiveSection('home'); }}>
+              👥 Guest (Visitor View)
+            </button>
+            <button className="drawer-item" onClick={() => { login('member@gmail.com', 'member'); setIsRoleDrawerOpen(false); setActiveSection('portal'); }}>
+              🏋️ Member (Subscribed View)
+            </button>
+            <button className="drawer-item" onClick={() => { login('guest_member@gmail.com', 'member'); setIsRoleDrawerOpen(false); setActiveSection('portal'); }}>
+              🆕 Member (No Subscription View)
+            </button>
+            <button className="drawer-item" onClick={() => { login('t2', 'trainer'); setIsRoleDrawerOpen(false); setActiveSection('portal'); }}>
+              🥋 Trainer (Coach Marcus View)
+            </button>
+            <button className="drawer-item" onClick={() => { login('admin@modernfitness.com', 'admin'); setIsRoleDrawerOpen(false); setActiveSection('portal'); }}>
+              ⚙️ Admin (Manager Settings View)
+            </button>
+
+            <button className="btn btn-secondary" style={{ marginTop: '1rem', width: '100%' }} onClick={() => setIsRoleDrawerOpen(false)}>
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
 
     </div>
   );

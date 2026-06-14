@@ -981,3 +981,110 @@ button, input, select, textarea {
 .badge-warning { background-color: rgba(234, 179, 8, 0.15); color: #eab308; border: 1px solid #eab308; }
 .badge-danger { background-color: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid #ef4444; }
 .badge-primary { background-color: var(--primary-glow); color: var(--primary-color); border: 1px solid var(--primary-color); }
+
+/* MOBILE ONE-THUMB UI OPTIMIZATIONS (FABs & BOTTOM DRAWER) */
+.fab-btn {
+  position: fixed;
+  bottom: 85px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: var(--bg-dark);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 12px var(--primary-color);
+  z-index: 1500;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.fab-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.fab-btn:active {
+  transform: scale(0.9) translateY(2px);
+}
+
+.fab-left {
+  left: 20px;
+}
+
+.fab-right {
+  right: 20px;
+}
+
+/* Hide top simulator bar on mobile */
+@media (max-width: 768px) {
+  .role-simulator {
+    display: none !important;
+  }
+  
+  /* Hide standard config sidebar on mobile */
+  .config-sidebar {
+    display: none !important;
+  }
+  
+  /* Make config layout single column on mobile */
+  .config-layout {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .fab-btn {
+    display: none !important;
+  }
+}
+
+/* Bottom Sheet Menu Drawer styling */
+.drawer-content {
+  background-color: var(--bg-card);
+  width: 100%;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  padding: 2rem 1.5rem;
+  max-height: 80vh;
+  overflow-y: auto;
+  border-top: 1px solid var(--border-color);
+  box-shadow: 0 -10px 40px rgba(0,0,0,0.8);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.drawer-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+}
+
+.drawer-item {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border-color);
+  color: white;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: var(--transition-smooth);
+}
+
+.drawer-item.active, .drawer-item:active {
+  background-color: var(--primary-glow);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
