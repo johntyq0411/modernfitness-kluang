@@ -103,18 +103,18 @@ export default function MemberDashboard({ setActiveSection }) {
                   <tbody>
                     {bookedClasses.map(c => (
                       <tr key={c.id}>
-                        <td>
+                        <td data-label="Class Details">
                           <strong>{c.name}</strong>
                           <span style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
                             Coach: {c.trainer}
                           </span>
                         </td>
-                        <td>
+                        <td data-label="Schedule">
                           <span className="badge badge-primary" style={{ fontSize: '0.65rem' }}>{c.day}</span>
                           <span style={{ display: 'block', fontSize: '0.8rem', marginTop: '0.2rem' }}>{c.time.split(' - ')[0]}</span>
                         </td>
-                        <td>{c.room}</td>
-                        <td>
+                        <td data-label="Room">{c.room}</td>
+                        <td data-label="Action">
                           <button 
                             className="btn btn-danger" 
                             style={{ padding: '0.3rem 0.75rem', fontSize: '0.75rem' }}
@@ -176,12 +176,12 @@ export default function MemberDashboard({ setActiveSection }) {
                   <tbody>
                     {userPtBookings.map(b => (
                       <tr key={b.id}>
-                        <td>
+                        <td data-label="Trainer">
                           <strong>{b.trainerName}</strong>
                         </td>
-                        <td>{b.day}</td>
-                        <td>{b.time}</td>
-                        <td>
+                        <td data-label="Day">{b.day}</td>
+                        <td data-label="Time">{b.time}</td>
+                        <td data-label="Action">
                           <button 
                             className="btn btn-danger" 
                             style={{ padding: '0.3rem 0.75rem', fontSize: '0.75rem' }}

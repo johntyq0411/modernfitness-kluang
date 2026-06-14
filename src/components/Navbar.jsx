@@ -85,9 +85,16 @@ export default function Navbar({ activeSection, setActiveSection }) {
               <path d="M8.5 22h7" />
               <path d="M12 2v20" />
             </svg>
-            {gymSettings.name.split(' ').map((word, i) => (
-              <span key={i} style={i === 0 ? {color: 'white'} : {color: 'var(--primary-color)'}}>{word} </span>
-            ))}
+            <div className="logo-text-container">
+              <span className="logo-text-primary">
+                {gymSettings.name.split(' ').slice(0, 2).join(' ')}
+              </span>
+              {gymSettings.name.split(' ').length > 2 && (
+                <span className="logo-text-secondary">
+                  {gymSettings.name.split(' ').slice(2).join(' ')}
+                </span>
+              )}
+            </div>
           </a>
 
           {/* Desktop Navigation Links */}

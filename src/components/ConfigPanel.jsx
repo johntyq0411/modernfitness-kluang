@@ -351,15 +351,15 @@ export default function ConfigPanel({ setActiveSection }) {
                       <tbody>
                         {packages.map(p => (
                           <tr key={p.id}>
-                            <td>
+                            <td data-label="Package Name">
                               <strong>{p.name}</strong>
                               {p.badge && <span className="badge badge-success" style={{ display: 'block', width: 'fit-content', fontSize: '0.6rem', marginTop: '0.2rem' }}>{p.badge}</span>}
                             </td>
-                            <td><strong>{gymSettings.currency} {p.price}</strong>/{p.billingPeriod}</td>
-                            <td style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', maxWidth: '250px' }}>
+                            <td data-label="Price"><strong>{gymSettings.currency} {p.price}</strong>/{p.billingPeriod}</td>
+                            <td data-label="Features" style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', maxWidth: '250px' }}>
                               {p.features.join(', ')}
                             </td>
-                            <td>
+                            <td data-label="Action">
                               <button 
                                 className="btn btn-secondary" 
                                 style={{ padding: '0.3rem 0.75rem', fontSize: '0.75rem' }}
@@ -484,18 +484,18 @@ export default function ConfigPanel({ setActiveSection }) {
                     <tbody>
                       {timetable.map(c => (
                         <tr key={c.id}>
-                          <td>
+                          <td data-label="Class Details">
                             <strong>{c.name}</strong>
                             <span style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Coach: {c.trainer} | Room: {c.room}</span>
                           </td>
-                          <td>
+                          <td data-label="Day & Time">
                             <span className="badge badge-primary" style={{ fontSize: '0.65rem' }}>{c.day}</span>
                             <span style={{ display: 'block', fontSize: '0.8rem', marginTop: '0.2rem' }}>{c.time.split(' - ')[0]}</span>
                           </td>
-                          <td>
+                          <td data-label="Bookings">
                             <strong>{c.enrolled.length}</strong>/{c.capacity} Members
                           </td>
-                          <td>
+                          <td data-label="Action">
                             <button 
                               className="btn btn-danger" 
                               style={{ padding: '0.3rem 0.75rem', fontSize: '0.75rem' }}
@@ -588,25 +588,25 @@ export default function ConfigPanel({ setActiveSection }) {
                     <tbody>
                       {members.map((m, idx) => (
                         <tr key={idx}>
-                          <td>
+                          <td data-label="Member Details">
                             <strong>{m.name}</strong>
                             <span style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-secondary)' }}>{m.email}</span>
                           </td>
-                          <td>
+                          <td data-label="Plan">
                             {m.subscription ? (
                               <span className="badge badge-success">{m.subscription}</span>
                             ) : (
                               <span className="badge badge-danger">No Subscription</span>
                             )}
                           </td>
-                          <td>
+                          <td data-label="Trainer">
                             {m.trainer ? (
                               <span>👤 {m.trainer} (Credits: {m.ptSessionsLeft})</span>
                             ) : (
                               <span style={{ color: 'var(--text-secondary)', fontStyle: 'italic' }}>None</span>
                             )}
                           </td>
-                          <td>
+                          <td data-label="Action">
                             {m.subscription ? (
                               <button 
                                 className="btn btn-danger" 
@@ -656,16 +656,16 @@ export default function ConfigPanel({ setActiveSection }) {
                       <tbody>
                         {ptBookings.map(b => (
                           <tr key={b.id}>
-                            <td>
+                            <td data-label="Member Info">
                               <strong>{b.memberName}</strong>
                               <span style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-secondary)' }}>{b.memberEmail}</span>
                             </td>
-                            <td>👤 {b.trainerName}</td>
-                            <td>
+                            <td data-label="Assigned Coach">👤 {b.trainerName}</td>
+                            <td data-label="Scheduled Time">
                               <span className="badge badge-primary">{b.day}</span>
                               <strong style={{ marginLeft: '0.5rem' }}>{b.time}</strong>
                             </td>
-                            <td>
+                            <td data-label="Action">
                               <button 
                                 className="btn btn-danger" 
                                 style={{ padding: '0.3rem 0.75rem', fontSize: '0.75rem' }}

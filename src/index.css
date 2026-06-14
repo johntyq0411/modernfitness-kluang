@@ -17,6 +17,7 @@
   --primary-color: #a3e635; /* default neon lime */
   --primary-glow: rgba(163, 230, 53, 0.15);
   --primary-dark: #84cc16;
+  --logo-size: 1.35rem;
 }
 
 /* RESET & CORE STYLES */
@@ -199,6 +200,36 @@ button, input, select, textarea {
 
 .logo span {
   color: var(--primary-color);
+}
+
+.logo-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.05;
+  text-align: left;
+  max-width: 200px;
+}
+
+.logo-text-primary {
+  color: white;
+  font-size: var(--logo-size, 1.35rem);
+  font-weight: 800;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.logo-text-secondary {
+  color: var(--primary-color);
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 0.1rem;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .nav-links {
@@ -384,13 +415,13 @@ button, input, select, textarea {
 /* GRID LAYOUTS */
 .grid-3 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 2rem;
 }
 
 .grid-2 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 3rem;
   align-items: center;
 }
@@ -508,7 +539,7 @@ button, input, select, textarea {
 
 .class-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
   gap: 1.5rem;
 }
 
@@ -806,6 +837,82 @@ button, input, select, textarea {
 
 .list-table tr:hover td {
   background-color: rgba(255, 255, 255, 0.01);
+}
+
+/* RESPONSIVE TABLE TRANSFORMATION FOR MOBILE VIEW */
+@media (max-width: 768px) {
+  .list-table-container {
+    border: none;
+    background-color: transparent;
+    overflow-x: visible;
+  }
+
+  .list-table {
+    display: block;
+    width: 100%;
+  }
+
+  .list-table thead {
+    display: none; /* Hide header columns on mobile */
+  }
+
+  .list-table tbody {
+    display: block;
+    width: 100%;
+  }
+
+  .list-table tr {
+    display: block;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .list-table tr:last-child {
+    margin-bottom: 0;
+  }
+
+  .list-table td {
+    display: block;
+    position: relative;
+    padding: 0.75rem 0 0.75rem 45% !important; /* Padding left 45% to clear the label */
+    text-align: right;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    font-size: 0.875rem;
+    min-height: 2.5rem;
+    word-break: break-word;
+  }
+
+  .list-table td:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+  }
+
+  .list-table td:first-child {
+    padding-top: 0 !important;
+  }
+
+  /* Set data-label prefixing */
+  .list-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+    width: 40%;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    pointer-events: none;
+  }
 }
 
 /* ROLE SIMULATOR BAR (FOR CONVENIENT TESTING) */
@@ -1116,5 +1223,64 @@ button, input, select, textarea {
   background-color: var(--primary-glow);
   color: var(--primary-color);
   border-color: var(--primary-color);
+}
+
+/* MOBILE VIEWPORT ADJUSTMENTS & OVERFLOW PREVENTION */
+@media (max-width: 768px) {
+  .logo {
+    gap: 0.35rem;
+  }
+  
+  .logo-text-container {
+    max-width: 160px;
+  }
+  
+  .logo-text-primary {
+    font-size: 1.15rem;
+  }
+  
+  .logo-text-secondary {
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+  }
+
+  .portal-header {
+    padding: 1.5rem !important;
+    gap: 1.5rem !important;
+    margin-bottom: 2rem !important;
+    border-radius: 1rem !important;
+  }
+  
+  .profile-card-details h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-text-container {
+    max-width: 130px;
+  }
+  
+  .logo-text-primary {
+    font-size: 1rem;
+  }
+  
+  .logo-text-secondary {
+    font-size: 0.6rem;
+    letter-spacing: 0.5px;
+  }
+
+  .card {
+    padding: 1.25rem !important;
+  }
+  
+  .section {
+    padding: 3rem 0 !important;
+  }
+
+  .btn {
+    padding: 0.7rem 1.2rem !important;
+    font-size: 0.85rem !important;
+  }
 }
 

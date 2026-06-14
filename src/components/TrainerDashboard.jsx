@@ -92,18 +92,18 @@ export default function TrainerDashboard({ setActiveSection }) {
                   <tbody>
                     {assignedMembers.map((member, idx) => (
                       <tr key={idx}>
-                        <td>
+                        <td data-label="Member">
                           <strong>{member.name}</strong>
                           <span style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
                             {member.email}
                           </span>
                         </td>
-                        <td>
+                        <td data-label="Membership Plan">
                           <span className="badge badge-primary" style={{ fontSize: '0.65rem' }}>
                             {member.subscription}
                           </span>
                         </td>
-                        <td>
+                        <td data-label="PT Credits">
                           <strong style={{ color: member.ptSessionsLeft > 0 ? 'var(--primary-color)' : 'var(--text-secondary)' }}>
                             {member.ptSessionsLeft} Left
                           </strong>
@@ -140,17 +140,17 @@ export default function TrainerDashboard({ setActiveSection }) {
                   <tbody>
                     {scheduledSessions.map(session => (
                       <tr key={session.id}>
-                        <td>
+                        <td data-label="Member">
                           <strong>{session.memberName}</strong>
                           <span style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
                             {session.memberEmail}
                           </span>
                         </td>
-                        <td>
+                        <td data-label="Day">
                           <span className="badge badge-primary" style={{ fontSize: '0.65rem' }}>{session.day}</span>
                         </td>
-                        <td><strong>{session.time}</strong></td>
-                        <td>
+                        <td data-label="Time Slot"><strong>{session.time}</strong></td>
+                        <td data-label="Action">
                           <button 
                             className="btn btn-danger" 
                             style={{ padding: '0.3rem 0.75rem', fontSize: '0.75rem' }}
