@@ -294,8 +294,6 @@ function AppContent() {
             <p>&copy; {new Date().getFullYear()} {gymSettings.name}. All rights reserved.</p>
             <div style={{ display: 'flex', gap: '1rem', fontSize: '0.8rem' }}>
               <a href="#home" onClick={(e) => { e.preventDefault(); setActiveSection('home'); }}>Back to Top</a>
-              <span>&middot;</span>
-              <a href="#portal" onClick={(e) => { e.preventDefault(); setActiveSection('portal'); }}>Staff Login</a>
             </div>
           </div>
         </div>

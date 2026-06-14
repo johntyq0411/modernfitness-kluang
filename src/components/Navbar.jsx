@@ -24,7 +24,7 @@ export default function Navbar({ activeSection, setActiveSection }) {
     { id: 'classes', label: 'Timetable' },
     { id: 'pricing', label: 'Memberships' },
     { id: 'trainers', label: 'Trainers' },
-    { id: 'portal', label: currentUser.role !== 'guest' ? `${currentUser.role.toUpperCase()} Portal` : 'Join Us' },
+    { id: 'portal', label: currentUser.role !== 'guest' ? `${currentUser.role.toUpperCase()} Portal` : 'Join Us', isCTA: true },
   ];
 
   return (
@@ -99,19 +99,42 @@ export default function Navbar({ activeSection, setActiveSection }) {
 
           {/* Desktop Navigation Links */}
           <nav className="nav-links">
-            {navItems.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setActiveSection(item.id);
-                }}
-              >
-                {item.label}
-              </a>
-            ))}
+            {navItems.map((item) => {
+              if (item.isCTA) {
+                return (
+                  <button
+                    key={item.id}
+                    className="btn btn-primary"
+                    style={{ 
+                      padding: '0.5rem 1.25rem', 
+                      fontSize: '0.85rem', 
+                      fontWeight: '800', 
+                      borderRadius: '0.5rem',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.5px',
+                      boxShadow: '0 0 10px var(--primary-glow)',
+                      height: 'auto'
+                    }}
+                    onClick={() => setActiveSection(item.id)}
+                  >
+                    {item.label === 'Join Us' ? '⚡ Join Us' : item.label}
+                  </button>
+                );
+              }
+              return (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setActiveSection(item.id);
+                  }}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
           </nav>
         </div>
       </header>
