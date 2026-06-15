@@ -145,7 +145,7 @@ function AppContent() {
                     <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
                       <h3 style={{ fontSize: '1.4rem', fontFamily: 'var(--font-display)', color: 'white' }}>Start Your Journey</h3>
                       <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginTop: '0.2rem' }}>
-                        Register today to start booking classes.
+                        Register today to book your free trial class.
                       </p>
                     </div>
 

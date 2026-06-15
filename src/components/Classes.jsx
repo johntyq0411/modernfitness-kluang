@@ -17,7 +17,7 @@ export default function Classes({ setActiveSection }) {
 
   const handleBook = (classId) => {
     if (currentUser.role === 'guest') {
-      alert('Please log in as a Member first. You can use the simulator bar at the top of the screen to quickly switch roles!');
+      alert('Please register or sign in as a Member to book your free trial class! You can also use the simulator bar at the top of the screen to switch roles.');
       setActiveSection('portal');
       return;
     }
@@ -149,7 +149,7 @@ export default function Classes({ setActiveSection }) {
                       ) : spotsLeft <= 0 ? (
                         'Class Full'
                       ) : (
-                        'Book Session'
+                        currentUser.role === 'guest' ? 'Book Trial Class' : 'Book Session'
                       )}
                     </button>
                   )}
